@@ -1,0 +1,28 @@
+{
+  "id": "f0922806-7a16-4322-82a5-1bafa7d35b32",
+  "name": "SD Seminar 1",
+  "publisher": "D. E. Veloper",
+  "brief": "",
+  "description": "",
+  "version": "1.0.0.0",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "capabilities": [],
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "13.0.0.0",
+  "application": "13.0.0.0",
+  "features": [
+    "TranslationFile"
+  ],
+  "showMyCode": true,
+  "target": "Internal",
+  "idRange": {
+    "from": 50100,
+    "to": 50199
+  },
+  "runtime": "2.0"
+}
