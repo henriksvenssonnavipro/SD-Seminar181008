@@ -118,8 +118,23 @@ page 50134 "CSD Posted Seminar Reg."
 
     actions
     {
+
         area(navigation)
         {
+            action("&Navigate")
+            {
+                Caption = '&Navigate';
+                Image = Navigate;
+                Promoted = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                var
+                    Navigate: page Navigate;
+                begin
+                    Navigate.SetDoc("Posting Date", "No.");
+                    Navigate.RUN;
+                end;
+            }
             group("&Seminar Registration")
             {
                 Caption = '&Seminar Registration';
