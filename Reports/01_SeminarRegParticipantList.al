@@ -1,60 +1,73 @@
-report 50101 "CSD SeminarRegParticipantList"
+report 50101 SeminarRegParticipantList
 {
-    UsageCategory = Administration;
-    ApplicationArea = All;
-
+    Caption = 'Seminar Reg.- Participant List';
+    DefaultLayout = RDLC;
+    RDLCLayout = './Layouts/SeminarRegParticipantList.rdl';
+    UsageCategory = ReportsAndAnalysis;
     dataset
     {
-        dataitem("CSD Seminar Reg. Header"; "CSD Seminar Reg. Header")
+        dataitem(SeminarRegistrationHeader; "CSD Seminar Reg. Header")
         {
+            DataItemTableView = sorting ("No.");
+            RequestFilterFields = "No.", "Seminar No.";
 
-            Column(No_; "No.")
+            column(No_; "No.")
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
             }
-            Column(Seminar_No_; "Seminar No.")
+            column(Seminar_No_; "Seminar No.")
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
             }
-            Column(Seminar_Name; "Seminar Name")
+            column(Seminar_Name; "Seminar Name")
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
             }
-            Column(Duration; Duration)
+            column(Starting_Date; "Starting Date")
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
             }
-            Column(Instructor_Name; "Instructor Name")
+            column(Duration; Duration)
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
             }
-            Column(Room_Name; "Room Name")
+            column(Instructor_Name; "Instructor Name")
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
             }
-            Column(Seminar_Price; "Seminar Price")
+            column(Room_Name; "Room Name")
             {
-                IncludeCaption = True;
+                IncludeCaption = true;
+            }
+            dataitem(SeminarRegistrationLine; "CSD Seminar Registration Line")
+            {
+                DataItemTableView = sorting ("Document No.", "Line No.");
+                DataItemLink = "Document No." = field ("No.");
+
+                column(Bill_to_Customer_No_; "Bill-to Customer No.")
+                {
+                    IncludeCaption = true;
+                }
+                column(Participant_Contact_No_; "Participant Contact No.")
+                {
+                    IncludeCaption = true;
+                }
+                column(Participant_Name; "Participant Name")
+                {
+                    IncludeCaption = true;
+                }
             }
         }
-        dataitem("CSD Seminar Registration Line"; "CSD Seminar Registration Line")
+        dataitem("Company Information"; "Company Information")
         {
-            Column(Bill_to_Customer_No_; "Bill-to Customer No.")
+            column(Company_Name; Name)
             {
-                IncludeCaption = True;
-            }
-            column(Participant_Contact_No_; "Participant Contact No.")
-            {
-                IncludeCaption = True;
-            }
-            column(Participant_Name; "Participant Name")
-            {
-                IncludeCaption = True;
             }
         }
     }
+
     labels
     {
-        SeminarRegistrationHeaderCap = 'Seminar Registration List';
+        SeminarRegistrationHeaderCap = 'Seminar Registration Header';
     }
 }
